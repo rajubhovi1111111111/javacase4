@@ -20,6 +20,7 @@ jobs:
 
     - name: Build with Maven
       run: mvn clean package
+      working-directory: ./javacase1
 
     - name: Deploy to Azure Web App
       uses: azure/webapps-deploy@v2
