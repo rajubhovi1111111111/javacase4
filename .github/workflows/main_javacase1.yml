@@ -1,4 +1,4 @@
-name: Java App Service CI/CD
+=name: Java App Service CI/CD
 
 on:
   push:
@@ -10,22 +10,25 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-    - name: Set up Java
-      uses: actions/setup-java@v1
-      with:
-        java-version: '11'
+      - name: Set up Java
+        uses: actions/setup-java@v1
+        with:
+          java-version: '11'
 
-    - name: Build with Maven
-      run: mvn clean package
+      - name: Build with Maven
+        run: mvn clean package
 
-    - name: Deploy to Azure Web App
-      uses: azure/webapps-deploy@v2
-      with:
-        app-name: 'javacase1'
-        slot-name: 'production'
-        publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_B217C1007E7B4186913A959C31B9FC63 }}
-        package: './target/*.war'
-        webserver: 'tomcat 9.0'
+      - name: Display target directory
+        run: ls target
+
+      - name: Deploy to Azure Web App
+        uses: azure/webapps-deploy@v2
+        with:
+          app-name: 'javacase1'
+          slot-name: 'production'
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_B217C1007E7B4186913A959C31B9FC63 }}
+          package: './target/*.war'
+          webserver: 'tomcat 9.0'
