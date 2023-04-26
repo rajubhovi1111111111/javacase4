@@ -1,4 +1,4 @@
-=name: Java App Service CI/CD
+name: Java App Service CI/CD
 
 on:
   push:
