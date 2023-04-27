@@ -33,5 +33,4 @@ jobs:
           app-name: 'javacase1'
           slot-name: 'production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_B217C1007E7B4186913A959C31B9FC63 }}
-          package: './target/my-web-app-1.0.0/*.war'
-          webserver: 'tomcat 9.0'
+          package: './target/my-web-app-1.0.0.war'
